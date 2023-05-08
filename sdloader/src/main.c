@@ -150,150 +150,6 @@ const char *no_bin =
     "O  OO O   O  O   O  O  O  OO\n"
     "O   O OOOOO  OOOO  OOO O   O\n"
 ;
-#if 0
-const char *rocket_1 =
-    "      L      \n"
-    "     LOL     \n"
-    "    LRORL    \n"
-    "    LLLLL    \n"
-    "    LAAAL    \n"
-    "    LACAL    \n"
-    "    LAAAL    \n"
-    "    LAAAL    \n"
-    "    LAAAL    \n"
-    "   LLAAALL   \n"
-    "  LALAAALAL  \n"
-    " LLLLAAALLLL \n"
-    "    LAAAL    \n"
-    "     LLL     \n"
-    "    ROYOR    \n"
-    "    ROYOR    \n"
-    "    ROYOR    \n"
-    "     RYR     \n"
-    "      R      \n"
-    "             \n"
-;
-
-const char *rocket_2 =
-    "      L      \n"
-    "     LOL     \n"
-    "    LRORL    \n"
-    "    LLLLL    \n"
-    "    LAAAL    \n"
-    "    LACAL    \n"
-    "    LAAAL    \n"
-    "    LAAAL    \n"
-    "    LAAAL    \n"
-    "   LLAAALL   \n"
-    "  LALAAALAL  \n"
-    " LLLLAAALLLL \n"
-    "    LAAAL    \n"
-    "     LLL     \n"
-    "    ROYOR    \n"
-    "    ROYOR    \n"
-    "     RYR     \n"
-    "      R      \n"
-    "             \n"
-    "             \n"
-;
-
-const char *rocket_3 =
-    "      L      \n"
-    "     LOL     \n"
-    "    LRORL    \n"
-    "    LLLLL    \n"
-    "    LAAAL    \n"
-    "    LACAL    \n"
-    "    LAAAL    \n"
-    "    LAAAL    \n"
-    "    LAAAL    \n"
-    "   LLAAALL   \n"
-    "  LALAAALAL  \n"
-    " LLLLAAALLLL \n"
-    "    LAAAL    \n"
-    "     LLL     \n"
-    "    ROYOR    \n"
-    "    ROYOR    \n"
-    "    ROYOR    \n"
-    "    ROYOR    \n"
-    "     RYR     \n"
-    "      R      \n"
-    
-;
-
-const char *ball =
-    "                \n"
-    "      RRRR      \n"
-    "    RROOOORR    \n"
-    "   ROOOOOOOOR   \n"
-    "  ROOOOOOOOOOR  \n"
-    "  ROOOOYYOOOOR  \n"
-    " ROOOOYYYYOOOOR \n"
-    " ROOOYYLYYYOOOR \n"
-    " ROOOYYYYYYOOOR \n"
-    " ROOOOYYYYOOOOR \n"
-    "  ROOOOYYOOOOR  \n"
-    "  ROOOOOOOOOOR  \n"
-    "   ROOOOOOOOR   \n"
-    "    RROOOORR    \n"
-    "      RRRR      \n"
-    "                \n"
-    "                \n"
-    "                \n"
-    "                \n"
-;
-
-const char *stage_cleared =
-    "*****OOOOO*OOOOO***O****OOOO*OOOOO******\n"
-    "*****O*******O****O*O**O*****O**********\n"
-    "*****OOOOO***O***O***O*O**OO*OOOO*******\n"
-    "*********O***O***OOOOO*O***O*O**********\n"
-    "*****OOOOO***O***O***O**OOOO*OOOOO******\n"
-    "****************************************\n"
-    "*OOOO*O*****OOOOO***O***OOOO*OOOOO*OOOO*\n"
-    "O*****O*****O*****O***O*O**O*O*****O***O\n"
-    "O*****O*****OOOO**O***O*OOO**OOOO**O***O\n"
-    "O*****O*****O*****OOOOO*O*O**O*****O***O\n"
-    "*OOOO*OOOOO*OOOOO*O***O*O**O*OOOOO*OOOO*\n"
-;
-#endif
-const char *update =
-    "O***O*OOOO**OOOO****O***OOOOO*OOOOO\n"
-    "O***O*O***O*O***O**O*O****O***O****\n"
-    "O***O*OOOO**O***O*O***O***O***OOOO*\n"
-    "O***O*O*****O***O*OOOOO***O***O****\n"
-    "*OOO**O*****OOOO**O***O***O***OOOOO\n"
-;
-
-const char *done =
-    "******OOOO***OOO**O***O*OOOOO******\n"
-    "******O***O*O***O*OO**O*O**********\n"
-    "******O***O*O***O*O*O*O*OOOO*******\n"
-    "******O***O*O***O*O**OO*O**********\n"
-    "******OOOO***OOO**O***O*OOOOO******\n"
-;
-
-const char *failed =
-    "**OOOOO***O***O*O*****OOOOO*OOOO***\n"
-    "**O*****O***O***O*****O*****O***O**\n"
-    "**OOOO**O***O*O*O*****OOOO**O***O**\n"
-    "**O*****OOOOO*O*O*****O*****O***O**\n"
-    "**O*****O***O*O*OOOOO*OOOOO*OOOO***\n"
-;
-#if 0
-static bool is_stage_cleared()
-{
-    uint32_t *fb = (uint32_t *) g_framebuffer;
-#define fb_coord(x, y) (fb[(y) + (1280 - (x)) * (720 + 48)])
-    
-    for (int x = 10; x < 1270; x++)
-        for (int y = 10; y < 340; y++)
-            if ((fb_coord(x, y) & 0xFFFFFF) != 0xBBBBBB)
-                return false;
-    
-    return true;
-}
-#endif
 
 static void modchip_send(sdmmc_t *sdmmc, uint8_t *buf)
 {
@@ -314,71 +170,11 @@ static void modchip_send(sdmmc_t *sdmmc, uint8_t *buf)
     sdmmc_send_cmd(sdmmc, &cmd, &req, 0);
 }
 
-static void modchip_recv(sdmmc_t *sdmmc, uint8_t *buf)
-{
-    sdmmc_command_t cmd = {};
-    sdmmc_request_t req = {};
-
-    cmd.opcode = MMC_GO_IDLE_STATE;
-    cmd.arg = 0xAA5458BB;
-    cmd.flags = SDMMC_RSP_R1;
-
-    req.data = buf;
-    req.blksz = 512;
-    req.num_blocks = 1;
-    req.is_read = true;
-    req.is_multi_block = false;
-    req.is_auto_cmd12 = false;
-    
-    sdmmc_send_cmd(sdmmc, &cmd, &req, 0);
-}
-
-static void atmosphere_update(void)
-{
-    FILINFO info;
-    const char* sd_pkg3 = "package3";
-    if (f_stat(sd_pkg3, &info) == FR_OK)
-    {
-        const char* ams_pkg3 = "atmosphere/package3";
-        f_unlink(ams_pkg3);
-        f_rename(sd_pkg3, ams_pkg3);
-    }
-
-    const char* sd_romfs = "stratosphere.romfs";
-    if (f_stat(sd_romfs, &info) == FR_OK)
-    {
-        const char* ams_romfs = "atmosphere/stratosphere.romfs";
-        f_unlink(ams_romfs);
-        f_rename(sd_romfs, ams_romfs);
-    }
-}
-
-enum DFU_ERRORS
-{
-    ERROR_SUCCESS = 0x70000000,
-    ERROR_INVALID_PACKAGE_LENGTH = 0x40000000,
-    ERROR_INVALID_OFFSET,
-    ERROR_INVALID_LENGTH,
-    ERROR_ERASE_FAILED,
-    ERROR_FLASH_FAILED,
-    ERROR_FAILED_TO_UPDATE_OB,
-    
-    ERROR_UNIMPLEMENTED = 0x50000000
-};
-
-enum COMMANDS
-{
-    PING = 0xA0F0,
-    SET_OFFSET,
-    READ_FLASH,
-    READ_OB,
-    SET_OB,
-};
-
 int main(void) {
     log_set_log_level(SCREEN_LOG_LEVEL_NONE);
 
     int ret = 0;
+	int mcnosleep = 0;
     uint8_t modchip_buf[512];
 
     nx_hwinit();
@@ -386,6 +182,12 @@ int main(void) {
     fuse_init();
 
     sdmmc_init(&emmc_sdmmc, SDMMC_4, SDMMC_VOLTAGE_1V8, SDMMC_BUS_WIDTH_1BIT, SDMMC_SPEED_MMC_IDENT);
+	
+	uint32_t btn = btn_read();
+
+    /* First sleep command tells chip glitch success */	
+	modchip_buf[0] = 0x55;
+	modchip_send(&emmc_sdmmc, modchip_buf);
 
     if (!mount_sd())
     {
@@ -394,180 +196,70 @@ int main(void) {
             ret = -1;
     }
 
-    /* Boot to OFW (Normal) only if VOL_UP is pressed, avoiding conflicts with Hekate */
-    uint32_t btn = btn_read();
-    if (btn & BTN_VOL_UP && !(btn & BTN_VOL_DOWN))
+    /* Boot to OFW (Normal) if VOL_UP and VOL_DOWN is pressed */
+
+    if (btn & BTN_VOL_UP && btn & BTN_VOL_DOWN)
     {
         ret = 1;
     }
-    
+
+    /* keep chip awake if VOL_UP is pressed */
+    if (btn & BTN_VOL_UP && !(btn & BTN_VOL_DOWN))
+    {
+        mcnosleep = 1;
+    }
+
+    /* send sleep command */
+	if (mcnosleep == 0)
+	{
+	modchip_buf[0] = 0x55;
+	modchip_send(&emmc_sdmmc, modchip_buf);
+	}
+	
+    autohosoff();
+
     if (ret == 0)
     {
-        modchip_buf[0] = 0x44;
-        modchip_send(&emmc_sdmmc, modchip_buf);
-        do
-        {
-            mdelay(10);
-            modchip_recv(&emmc_sdmmc, modchip_buf);
-        }
-        while (modchip_buf[0] != (uint8_t) ~0x44);
+		ret = load_payload("payload.bin");
     }
 
-    FIL f;
-    FILINFO info;
-    uint32_t new_version = 0;
-    UINT br = 0;
-    if (ret != 0
-     || f_open(&f, "firmware.bin", FA_READ) != FR_OK
-     || f_lseek(&f, 0x150) != FR_OK
-     || f_read(&f, &new_version, 4, &br) != FR_OK
-     || (new_version <= *(uint32_t *) &modchip_buf[1] && f_stat(".force_update", &info) != FR_OK))
+    if (ret != 0)
     {
-        modchip_buf[0] = 0x55;
-        modchip_send(&emmc_sdmmc, modchip_buf);
-
-        autohosoff();
-
-        if (ret == 0)
-        {
-            atmosphere_update();
-            ret = load_payload("payload.bin");
-            if (ret != 0)
-                ret = load_payload("bootloader/update.bin"); // Try loading hekate update.bin
-        }
-
-        if (ret != 0)
-        {
-            setup_display();
-
-            memset(g_framebuffer, 0x00, (720 + 48) * 1280 * 4);
-
-            if (ret == -1)
-                draw_table(no_sd, 50, 50, 50);
-            else if (ret == -2)
-                draw_table(no_bin, 52, 52, 42);
-            else if (ret == -3)
-                draw_table(big_bin, 48, 48, 37);
-            else if (ret == 1)
-            {
-                sdmmc_finish(&emmc_sdmmc);
-                unmount_sd();
-                panic(0x21); // Bypass fuse programming in package1.
-            }
-
-            display_backlight(true);
-
-            while (true)
-            {
-                uint32_t btn = btn_read();
-                if (btn & BTN_POWER)
-                    break;
-            }
-
-            display_backlight(false);
-
-            display_end();
-        }
-    }
-    else
-    {
-        modchip_buf[0] = 0xAA;
-        modchip_send(&emmc_sdmmc, modchip_buf);
         setup_display();
 
         memset(g_framebuffer, 0x00, (720 + 48) * 1280 * 4);
 
-        display_backlight(true);
-        draw_table(update, 115, 100, 30);
-        
-        modchip_buf[0] = 2;
-        *(uint16_t *) &modchip_buf[1] = PING;
-        modchip_send(&emmc_sdmmc, modchip_buf);
-        do
+        if (ret == -1)
+            draw_table(no_sd, 50, 50, 50);
+        else if (ret == -2)
+            draw_table(no_bin, 52, 52, 42);
+        else if (ret == -3)
+            draw_table(big_bin, 48, 48, 37);
+        else if (ret == 1)
         {
-            mdelay(10);
-            modchip_recv(&emmc_sdmmc, modchip_buf);
+            sdmmc_finish(&emmc_sdmmc);
+            unmount_sd();
+            panic(0x21); // Bypass fuse programming in package1.
         }
-        while (modchip_buf[0] != (uint8_t) ~2);
-        if (*(uint32_t *) &modchip_buf[1] == ERROR_SUCCESS)
-        {
-            modchip_buf[0] = 6;
-            *(uint16_t *) &modchip_buf[1] = SET_OFFSET;
-            *(uint32_t *) &modchip_buf[3] = 0x3000;
-            modchip_send(&emmc_sdmmc, modchip_buf);
-            do
-            {
-                mdelay(10);
-                modchip_recv(&emmc_sdmmc, modchip_buf);
-            }
-            while (modchip_buf[0] != (uint8_t) ~6);
-            char last_progress = 0;
-            if (*(uint32_t *) &modchip_buf[1] == ERROR_SUCCESS)
-            {
-                if (f_lseek(&f, 0) == FR_OK)
-                {
-                    uint32_t file_size = f_size(&f);
-                    for (int i = 0; i < file_size; i += 64)
-                    {
-                        modchip_buf[0] = 64;
-                        f_sync(&f);
-                        if (f_read(&f, &modchip_buf[1], 64, &br) != FR_OK)
-                        {
-                            ret = -3;
-                            break;
-                        }
-                        
-                        modchip_send(&emmc_sdmmc, modchip_buf);
-                        do
-                        {
-                            mdelay(10);
-                            modchip_recv(&emmc_sdmmc, modchip_buf);
-                        }
-                        while (modchip_buf[0] != (uint8_t) ~64);
-                        
-                        if (*(uint32_t *) &modchip_buf[1] != ERROR_SUCCESS)
-                        {
-                            ret = -4;
-                            break;
-                        }
-                        
-                        char new_progress = (i * 100) / file_size;
-                        if (new_progress > 100)
-                            new_progress = 100;
-                        if (new_progress != last_progress)
-                        {
-                            last_progress = new_progress;
-                            draw_square(40, 354, last_progress, 0, 12, 0xFFFFFF);
-                        }
-                    }
-                }
-                else
-                    ret = -5;
-                f_close(&f);
-            }
-            else
-                ret = -2;
-        }
-        else
-            ret = -1;
 
-        if (ret == 0)
+        display_backlight(true);
+
+        while (true)
         {
-            draw_table(done, 115, 380, 30);
-            // Remove .force_update or the device will stuck in a loop of updating firmware
-            if (f_stat(".force_update", &info) == FR_OK)
-                f_unlink(".force_update");
-        }
-        else
-            draw_table(failed, 115, 380, 30);
-        
-        mdelay(3000);
+            uint32_t btn = btn_read();
+            if (btn & BTN_POWER)
+                break;
+			if (btn & BTN_VOL_UP && btn & BTN_VOL_DOWN)
+			{
+				sdmmc_finish(&emmc_sdmmc);
+				unmount_sd();
+				panic(0x21); // Bypass fuse programming in package1.
+			}
+		}
 
         display_backlight(false);
 
         display_end();
-
-        ret = -1;
     }
     
     sdmmc_finish(&emmc_sdmmc);
